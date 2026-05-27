@@ -11,7 +11,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      background: #faf8f5;
+      background: #faf5f5;
       color: #2c2420;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 300;
@@ -27,7 +27,7 @@
     /* Header */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(250,248,245,0.92);
+      background: rgba(250,245,245,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(44,36,32,0.06);
       padding: 20px 0;
@@ -39,14 +39,15 @@
     }
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #2c2420;
       text-decoration: none;
+      line-height: 1.1;
     }
-    .logo span { font-weight: 300; font-style: italic; display: block; font-size: 0.7rem; letter-spacing: 0.3em; color: #8a7a72; margin-top: 2px; }
+    .logo span { font-weight: 300; font-style: italic; display: block; font-size: 0.85rem; letter-spacing: 0.3em; color: #c48a8a; margin-top: 4px; }
     nav a {
       margin-left: 36px;
       text-decoration: none;
@@ -57,7 +58,7 @@
       font-weight: 300;
       transition: color 0.3s;
     }
-    nav a:hover { color: #a67c6b; }
+    nav a:hover { color: #c48a8a; }
 
     /* Hero */
     .hero {
@@ -67,7 +68,7 @@
       justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
-      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe5 50%, #e8e0d8 100%);
+      background: linear-gradient(135deg, #faf5f5 0%, #f0e5e5 50%, #e8d8d8 100%);
       position: relative;
       overflow: hidden;
     }
@@ -75,8 +76,8 @@
       content: '';
       position: absolute;
       top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(166,124,107,0.08) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 60%, rgba(200,180,165,0.06) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 30% 40%, rgba(196,138,138,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 60%, rgba(220,180,180,0.08) 0%, transparent 50%);
       animation: float 20s ease-in-out infinite;
     }
     @keyframes float {
@@ -89,7 +90,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: #a67c6b;
+      color: #c48a8a;
       margin-bottom: 24px;
       font-weight: 300;
     }
@@ -101,7 +102,7 @@
     }
     .hero h1 em {
       font-style: italic;
-      color: #a67c6b;
+      color: #c48a8a;
     }
     .hero p {
       font-size: 1.05rem;
@@ -149,7 +150,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: #a67c6b;
+      color: #c48a8a;
       margin-bottom: 12px;
       font-weight: 300;
     }
@@ -219,7 +220,7 @@
     .servico-icon {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: #a67c6b;
+      color: #c48a8a;
     }
     .servico-card h4 {
       font-size: 1.3rem;
@@ -297,7 +298,7 @@
       margin-bottom: 8px;
     }
     .contato-info a {
-      color: #a67c6b;
+      color: #c48a8a;
       text-decoration: none;
     }
     .contato-info a:hover { text-decoration: underline; }
@@ -317,7 +318,7 @@
     }
     .contato-form input:focus,
     .contato-form textarea:focus {
-      border-color: #a67c6b;
+      border-color: #c48a8a;
     }
     .contato-form textarea { height: 120px; resize: vertical; }
     .contato-form button {
@@ -333,7 +334,7 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .contato-form button:hover { background: #a67c6b; }
+    .contato-form button:hover { background: #c48a8a; }
     @media (max-width: 768px) {
       .contato-wrap { grid-template-columns: 1fr; }
     }
