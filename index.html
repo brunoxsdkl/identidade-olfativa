@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andreia Freitas — Identidade Olfativa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #faf8f5;
+      color: #2c2420;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(44,36,32,0.06);
+      padding: 20px 0;
+      transition: padding 0.4s ease;
+    }
+    header.scrolled { padding: 12px 0; }
+    header .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2c2420;
+      text-decoration: none;
+    }
+    .logo span { font-weight: 300; font-style: italic; display: block; font-size: 0.7rem; letter-spacing: 0.3em; color: #8a7a72; margin-top: 2px; }
+    nav a {
+      margin-left: 36px;
+      text-decoration: none;
+      color: #5a4a42;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #a67c6b; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe5 50%, #e8e0d8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(166,124,107,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 60%, rgba(200,180,165,0.06) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -20px) rotate(1deg); }
+      66% { transform: translate(-20px, 15px) rotate(-1deg); }
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #a67c6b;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #2c2420;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #a67c6b;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #5a4a42;
+      max-width: 540px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 48px;
+      background: #2c2420;
+      color: #faf8f5;
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: all 0.4s ease;
+      border: 1px solid #2c2420;
+    }
+    .btn:hover {
+      background: transparent;
+      color: #2c2420;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #2c2420;
+      border: 1px solid #2c2420;
+      margin-left: 16px;
+    }
+    .btn-outline:hover {
+      background: #2c2420;
+      color: #faf8f5;
+    }
+    @media (max-width: 600px) {
+      .btn { display: block; width: 100%; text-align: center; }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+    }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    section:not(:last-child) { border-bottom: 1px solid rgba(44,36,32,0.04); }
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #a67c6b;
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+      color: #2c2420;
+    }
+    .section-desc {
+      color: #5a4a42;
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* Sobre */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .sobre-image {
+      width: 100%; height: 500px;
+      background: linear-gradient(135deg, #e8e0d8, #d4c8be);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-image::after {
+      content: '✦';
+      font-size: 6rem;
+      color: rgba(166,124,107,0.2);
+    }
+    .sobre-text h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .sobre-text p {
+      color: #5a4a42;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-image { height: 300px; }
+    }
+
+    /* Serviços */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .servico-card {
+      padding: 48px 32px;
+      background: #fff;
+      border: 1px solid rgba(44,36,32,0.06);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .servico-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(166,124,107,0.3);
+      box-shadow: 0 12px 40px rgba(44,36,32,0.06);
+    }
+    .servico-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #a67c6b;
+    }
+    .servico-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    .servico-card p {
+      font-size: 0.85rem;
+      color: #6a5a52;
+      font-weight: 300;
+    }
+    @media (max-width: 768px) {
+      .servicos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Processo */
+    .processo-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      counter-reset: step;
+    }
+    .step {
+      text-align: center;
+      position: relative;
+      padding: 40px 20px;
+    }
+    .step::before {
+      counter-increment: step;
+      content: '0' counter(step);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: rgba(166,124,107,0.15);
+      display: block;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .step h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 0.82rem;
+      color: #6a5a52;
+      font-weight: 300;
+    }
+    .step:not(:last-child)::after {
+      content: '—';
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      color: rgba(166,124,107,0.2);
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .processo-steps { grid-template-columns: 1fr 1fr; }
+      .step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 480px) {
+      .processo-steps { grid-template-columns: 1fr; }
+    }
+
+    /* Contato */
+    .contato-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .contato-info h4 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .contato-info p {
+      color: #5a4a42;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .contato-info a {
+      color: #a67c6b;
+      text-decoration: none;
+    }
+    .contato-info a:hover { text-decoration: underline; }
+    .contato-form input,
+    .contato-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      background: #fff;
+      border: 1px solid rgba(44,36,32,0.12);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #2c2420;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .contato-form input:focus,
+    .contato-form textarea:focus {
+      border-color: #a67c6b;
+    }
+    .contato-form textarea { height: 120px; resize: vertical; }
+    .contato-form button {
+      width: 100%;
+      padding: 14px;
+      background: #2c2420;
+      color: #faf8f5;
+      border: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 300;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contato-form button:hover { background: #a67c6b; }
+    @media (max-width: 768px) {
+      .contato-wrap { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      text-align: center;
+      background: #2c2420;
+      color: rgba(250,248,245,0.6);
+    }
+    footer .logo { color: #faf8f5; }
+    footer .logo span { color: rgba(250,248,245,0.4); }
+    footer p { font-size: 0.75rem; margin-top: 16px; font-weight: 300; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <a href="#" class="logo">Andreia Freitas<span>Identidade Olfativa</span></a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-subtitle">Criação de Assinatura Olfativa</p>
+    <h1>O perfume da <em>sua marca</em></h1>
+    <p>Identidades olfativas únicas que traduzem a essência da sua empresa em memórias sensoriais inesquecíveis.</p>
+    <div>
+      <a href="#contato" class="btn">Solicitar Orçamento</a>
+      <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-image reveal"></div>
+      <div class="sobre-text reveal">
+        <p class="section-label">Quem Sou</p>
+        <h3>Andreia Freitas</h3>
+        <p>
+          Há mais de uma década, eu transformo a essência de marcas em experiências olfativas memoráveis. 
+          Cada projeto é uma jornada sensorial — da pesquisa de conceito à seleção das notas perfeitas.
+        </p>
+        <p>
+          Acredito que o aroma certo tem o poder de despertar emoções, fortalecer identidades e criar 
+          conexões profundas entre empresas e seus públicos.
+        </p>
+        <p>
+          Meu trabalho é dar ao seu negócio um perfume inconfundível.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <p class="section-label reveal">Serviços</p>
+    <h2 class="section-title reveal">O que ofereço</h2>
+    <p class="section-desc reveal">
+      Da concepção à entrega, cada fragrância é desenvolvida artesanalmente para contar a história da sua marca.
+    </p>
+    <div class="servicos-grid">
+      <div class="servico-card reveal">
+        <div class="servico-icon">✧</div>
+        <h4>Assinatura Olfativa</h4>
+        <p>Criação de uma fragrância exclusiva que representa a identidade da sua marca.</p>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-icon">◇</div>
+        <h4>Fragrância Corporativa</h4>
+        <p>Desenvolvimento de ambientes aromáticos para lojas, hotéis e escritórios.</p>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-icon">○</div>
+        <h4>Consultoria Sensorial</h4>
+        <p>Estratégias de branding olfativo para lançamentos e eventos especiais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processo">
+  <div class="container">
+    <p class="section-label reveal">Processo</p>
+    <h2 class="section-title reveal">Como funciona</h2>
+    <p class="section-desc reveal">
+      Um método cuidadoso em quatro etapas para chegar à fragrância perfeita para sua marca.
+    </p>
+    <div class="processo-steps">
+      <div class="step reveal">
+        <h4>Imersão</h4>
+        <p>Entendo a essência, valores e personalidade da sua marca.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Concepção</h4>
+        <p>Desenvolvo o conceito olfativo com notas que traduzem sua identidade.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Criação</h4>
+        <p>Seleção e combinação artesanal de ingredientes exclusivos.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Entrega</h4>
+        <p>Apresentação da fragrância final com diretrizes de uso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container">
+    <p class="section-label reveal">Contato</p>
+    <h2 class="section-title reveal">Vamos criar juntos</h2>
+    <p class="section-desc reveal">
+      Conte-me sobre sua marca. Vou transformar sua essência em perfume.
+    </p>
+    <div class="contato-wrap">
+      <div class="contato-info reveal">
+        <h4>Entre em contato</h4>
+        <p>✉ <a href="mailto:andreia@identidadeolfativa.com">andreia@identidadeolfativa.com</a></p>
+        <p>📞 <a href="tel:+5511999999999">+55 11 99999-9999</a></p>
+        <p style="margin-top: 24px; font-style: italic; color: #8a7a72;">
+          "Uma marca é uma história que pode ser sentida."
+        </p>
+      </div>
+      <form class="contato-form reveal">
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu e-mail" required>
+        <input type="text" placeholder="Empresa">
+        <textarea placeholder="Conte um pouco sobre seu projeto..."></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a href="#" class="logo">Andreia Freitas<span>Identidade Olfativa</span></a>
+    <p>&copy; 2026 Andreia Freitas — Identidade Olfativa. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
