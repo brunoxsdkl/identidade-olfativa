@@ -136,6 +136,30 @@
       nav.open a::after { background: #E0C2CC; }
       .nav-cta { border-color: #E0C2CC; color: #E0C2CC; }
       .nav-cta:hover { background: #E0C2CC; color: #fff; }
+      .nav-social { display: none; }
+    }
+    .nav-social {
+      display: flex; align-items: center; gap: 8px;
+      margin-left: 8px; padding-left: 20px;
+      border-left: 1px solid rgba(44,36,32,0.1);
+    }
+    .nav-social a {
+      text-transform: none; letter-spacing: normal;
+      font-size: 0; margin: 0;
+    }
+    .nav-social svg {
+      width: 18px; height: 18px;
+      fill: #5a4a42;
+      transition: fill 0.3s;
+    }
+    .nav-social a:hover svg { fill: #E0C2CC; }
+    @media (max-width: 768px) {
+      .nav-social {
+        border-left: none; margin-left: 0; padding-left: 0;
+        gap: 16px;
+      }
+      .nav-social svg { width: 22px; height: 22px; fill: #2c2420; }
+      .nav-social a:hover svg { fill: #E0C2CC; }
     }
 
     /* Hero */
@@ -807,6 +831,14 @@
       <a href="#processo">Processo</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#contato" class="nav-cta">Solicitar Orçamento</a>
+      <div class="nav-social">
+        <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
     </nav>
   </div>
 </header>
