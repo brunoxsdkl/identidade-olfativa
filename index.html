@@ -22,6 +22,12 @@
       font-weight: 300;
       letter-spacing: 0.02em;
     }
+    .gradient-text {
+      background: linear-gradient(135deg, #2c2420, #E0C2CC, #d4a8b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* Header */
@@ -95,7 +101,7 @@
       justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
-      background: linear-gradient(135deg, #faf5f5 0%, #f0e5e5 50%, #e8d8d8 100%);
+      background: linear-gradient(135deg, #faf5f5 0%, #f0e5e5 30%, #e8d8d8 70%, #f0e5e5 100%);
       position: relative;
       overflow: hidden;
     }
@@ -103,14 +109,23 @@
       content: '';
       position: absolute;
       top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(224,194,204,0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 60%, rgba(224,194,204,0.1) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
+      background: radial-gradient(ellipse at 25% 35%, rgba(224,194,204,0.2) 0%, transparent 50%),
+                  radial-gradient(ellipse at 75% 65%, rgba(200,170,180,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 50%, rgba(240,220,220,0.1) 0%, transparent 70%);
+      animation: float 25s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to top, rgba(250,245,245,1) 0%, transparent 100%);
+      z-index: 1;
     }
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(30px, -20px) rotate(1deg); }
-      66% { transform: translate(-20px, 15px) rotate(-1deg); }
+      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      33% { transform: translate(25px, -15px) rotate(0.5deg) scale(1.02); }
+      66% { transform: translate(-15px, 10px) rotate(-0.5deg) scale(0.98); }
     }
     .hero-content { position: relative; z-index: 1; max-width: 720px; }
     .hero-subtitle {
@@ -172,7 +187,20 @@
 
     /* Sections */
     section { padding: 100px 0; }
-    section:not(:last-child) { border-bottom: 1px solid rgba(44,36,32,0.04); }
+    section:not(:last-child) {
+      border-bottom: none;
+      position: relative;
+    }
+    section:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      max-width: 400px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(224,194,204,0.4), transparent);
+    }
     .section-label {
       font-size: 0.6rem;
       letter-spacing: 0.4em;
@@ -233,15 +261,29 @@
     }
     .servico-card {
       padding: 48px 32px;
-      background: #fff;
+      background: linear-gradient(135deg, #fff 0%, #faf5f5 100%);
       border: 1px solid rgba(44,36,32,0.06);
       transition: all 0.4s ease;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #E0C2CC, transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
     .servico-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: rgba(224,194,204,0.4);
-      box-shadow: 0 12px 40px rgba(44,36,32,0.06);
+      box-shadow: 0 16px 48px rgba(44,36,32,0.08);
+    }
+    .servico-card:hover::before {
+      opacity: 1;
     }
     .servico-icon {
       font-size: 2rem;
@@ -272,6 +314,12 @@
       text-align: center;
       position: relative;
       padding: 40px 20px;
+      background: linear-gradient(180deg, rgba(250,245,245,0.5) 0%, transparent 100%);
+      border-radius: 4px;
+      transition: all 0.4s ease;
+    }
+    .step:hover {
+      background: linear-gradient(180deg, rgba(224,194,204,0.1) 0%, transparent 100%);
     }
     .step::before {
       counter-increment: step;
@@ -309,6 +357,9 @@
     }
 
     /* Contato */
+    #contato {
+      background: linear-gradient(180deg, #faf5f5 0%, #f5ecec 100%);
+    }
     .contato-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -547,7 +598,7 @@
     <div class="contato-wrap">
       <div class="contato-info reveal">
         <h4>Entre em contato</h4>
-        <p>✉ <a href="mailto:andreia@identidadeolfativa.com">andreia@identidadeolfativa.com</a></p>
+        <p>✉ <a href="mailto:andreia.tulipa@outlook.com">andreia.tulipa@outlook.com</a></p>
         <p>📞 <a href="tel:+5541999210392">(41) 99921-0392</a></p>
         <p>📷 <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener">@ANDREIA.TULIPA</a></p>
         <p>📘 <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener">/home.decor.56614</a></p>
