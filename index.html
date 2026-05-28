@@ -4,611 +4,789 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andreia Freitas — Identidade Olfativa</title>
+  <meta name="description" content="Identidades olfativas exclusivas para marcas. Transforme a essência do seu negócio em uma fragrância inesquecível.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      background: #faf5f5;
-      color: #2c2420;
-      font-family: 'Josefin Sans', sans-serif;
+      background: #0a0806;
+      color: #d4cfc8;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      letter-spacing: 0.02em;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #f5f0eb;
     }
-    .gradient-text {
-      background: linear-gradient(135deg, #2c2420, #E0C2CC, #d4a8b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    ::selection { background: rgba(200, 170, 140, 0.3); color: #f5f0eb; }
+
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Scroll progress */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 1000;
+      background: linear-gradient(90deg, #c8aa8c, #e8d5c0);
+      width: 0%; transition: width 0.1s;
+    }
 
     /* Header */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(250,245,245,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(44,36,32,0.06);
-      padding: 20px 0;
-      transition: padding 0.4s ease;
+      padding: 24px 0;
+      transition: all 0.5s ease;
     }
-    header.scrolled { padding: 12px 0; }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(10,8,6,0.85);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      opacity: 0; transition: opacity 0.5s;
+    }
+    header.scrolled::before { opacity: 1; }
+    header.scrolled { padding: 14px 0; }
     header .container {
       display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 1;
     }
     .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #2c2420;
+      color: #f5f0eb;
       text-decoration: none;
       line-height: 1.1;
     }
-    .logo span { font-weight: 300; font-style: italic; display: block; font-size: 0.85rem; letter-spacing: 0.3em; color: #E0C2CC; margin-top: 4px; }
+    .logo span {
+      font-weight: 300; font-style: italic;
+      display: block; font-size: 0.7rem;
+      letter-spacing: 0.35em; color: #c8aa8c;
+      margin-top: 2px;
+    }
     nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
+      display: flex; align-items: center; gap: 32px;
     }
     nav a {
       text-decoration: none;
-      color: #5a4a42;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+      color: #b5a89a;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      font-weight: 300;
+      font-weight: 400;
       transition: color 0.3s;
+      position: relative;
     }
-    nav a:hover { color: #E0C2CC; }
-    .social-nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-left: 8px;
-      padding-left: 20px;
-      border-left: 1px solid rgba(44,36,32,0.1);
+    nav a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+      background: #c8aa8c; transition: width 0.3s;
     }
-    .social-nav a {
-      text-transform: none;
-      letter-spacing: normal;
-      font-size: 0;
-      margin: 0;
+    nav a:hover { color: #f5f0eb; }
+    nav a:hover::after { width: 100%; }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid #c8aa8c;
+      padding: 10px 28px;
+      color: #c8aa8c;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.4s;
     }
-    .social-nav svg {
-      width: 20px;
-      height: 20px;
-      fill: #5a4a42;
-      transition: fill 0.3s;
+    .nav-cta:hover {
+      background: #c8aa8c;
+      color: #0a0806;
     }
-    .social-nav a:hover svg {
-      fill: #E0C2CC;
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 1.5px; background: #f5f0eb;
+      transition: all 0.3s;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      nav { display: none; }
+      nav.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(10,8,6,0.98);
+        backdrop-filter: blur(24px);
+        justify-content: center; align-items: center;
+        gap: 40px; z-index: 99;
+      }
+      nav.open a { font-size: 1rem; }
     }
 
     /* Hero */
     .hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
-      background: linear-gradient(135deg, #faf5f5 0%, #f0e5e5 30%, #e8d8d8 70%, #f0e5e5 100%);
+      padding: 140px 24px 80px;
       position: relative;
       overflow: hidden;
+      background: #0a0806;
     }
-    .hero::before {
-      content: '';
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg-video {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg-video video {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.4;
+    }
+    .hero-glow {
       position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 25% 35%, rgba(224,194,204,0.2) 0%, transparent 50%),
-                  radial-gradient(ellipse at 75% 65%, rgba(200,170,180,0.15) 0%, transparent 50%),
-                  radial-gradient(ellipse at 50% 50%, rgba(240,220,220,0.1) 0%, transparent 70%);
-      animation: float 25s ease-in-out infinite;
+      top: 50%; left: 50%;
+      width: 80vmax; height: 80vmax;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle at center, rgba(200,170,140,0.12) 0%, rgba(200,170,140,0.04) 30%, transparent 60%);
+      animation: pulse-glow 8s ease-in-out infinite;
+      z-index: 0;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to top, rgba(250,245,245,1) 0%, transparent 100%);
-      z-index: 1;
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
     }
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      33% { transform: translate(25px, -15px) rotate(0.5deg) scale(1.02); }
-      66% { transform: translate(-15px, 10px) rotate(-0.5deg) scale(0.98); }
-    }
-
-    /* Perfume mist particles */
-    .mist-container {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
+    .hero-particles {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
       overflow: hidden;
     }
-    .mist-particle {
+    .particle {
       position: absolute;
+      width: 4px; height: 4px;
+      background: radial-gradient(circle, rgba(200,170,140,0.6), transparent);
       border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(224,194,204,0.6), transparent);
-      filter: blur(6px);
-      animation: mist-float linear infinite;
+      animation: particle-float linear infinite;
     }
-    .mist-particle:nth-child(1) {
-      width: 100px; height: 100px;
-      left: 10%; bottom: -15%;
-      animation-duration: 12s;
-      animation-delay: 0s;
+    @keyframes particle-float {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) translateX(80px); opacity: 0; }
     }
-    .mist-particle:nth-child(2) {
-      width: 70px; height: 70px;
-      left: 30%; bottom: -10%;
-      animation-duration: 10s;
-      animation-delay: 2s;
-    }
-    .mist-particle:nth-child(3) {
-      width: 120px; height: 120px;
-      left: 50%; bottom: -20%;
-      animation-duration: 14s;
-      animation-delay: 4s;
-    }
-    .mist-particle:nth-child(4) {
-      width: 80px; height: 80px;
-      left: 70%; bottom: -12%;
-      animation-duration: 11s;
-      animation-delay: 1s;
-    }
-    .mist-particle:nth-child(5) {
-      width: 60px; height: 60px;
-      left: 20%; bottom: -18%;
-      animation-duration: 9s;
-      animation-delay: 3s;
-    }
-    .mist-particle:nth-child(6) {
-      width: 90px; height: 90px;
-      left: 85%; bottom: -10%;
-      animation-duration: 13s;
-      animation-delay: 5s;
-    }
-    .mist-particle:nth-child(7) {
-      width: 50px; height: 50px;
-      left: 45%; bottom: -8%;
-      animation-duration: 8s;
-      animation-delay: 6s;
-    }
-    .mist-particle:nth-child(8) {
-      width: 110px; height: 110px;
-      left: 5%; bottom: -12%;
-      animation-duration: 15s;
-      animation-delay: 3s;
-    }
-    @keyframes mist-float {
-      0% {
-        opacity: 0;
-        transform: translateY(0) translateX(0) scale(0.6);
-      }
-      10% {
-        opacity: 0.8;
-      }
-      40% {
-        opacity: 0.5;
-        transform: translateY(-40vh) translateX(40px) scale(1.3);
-      }
-      75% {
-        opacity: 0.3;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-90vh) translateX(-30px) scale(0.4);
-      }
-    }
-    .hero-content { position: relative; z-index: 3; max-width: 720px; }
+
+    .hero-content { position: relative; z-index: 3; max-width: 800px; }
     .hero-subtitle {
-      font-size: 0.7rem;
-      letter-spacing: 0.4em;
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: #E0C2CC;
-      margin-bottom: 24px;
-      font-weight: 300;
+      color: #c8aa8c;
+      margin-bottom: 28px;
+      font-weight: 400;
     }
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      line-height: 1.1;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 1.08;
       margin-bottom: 20px;
-      color: #2c2420;
     }
-    .hero h1 em {
+    .hero h1 .accent {
       font-style: italic;
-      color: #E0C2CC;
+      background: linear-gradient(135deg, #c8aa8c, #e8d5c0, #c8aa8c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .hero p {
-      font-size: 1.05rem;
-      color: #5a4a42;
-      max-width: 540px;
-      margin: 0 auto 40px;
+      font-size: 0.95rem;
+      color: #b5a89a;
+      max-width: 520px;
+      margin: 0 auto 48px;
       font-weight: 300;
+      letter-spacing: 0.02em;
     }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      padding: 14px 48px;
-      background: #2c2420;
-      color: #faf8f5;
-      text-decoration: none;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      padding: 16px 48px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      font-weight: 300;
+      font-weight: 500;
       transition: all 0.4s ease;
-      border: 1px solid #2c2420;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .btn:hover {
+    .btn-primary {
+      background: #c8aa8c;
+      color: #0a0806;
+      border: 1px solid #c8aa8c;
+    }
+    .btn-primary:hover {
       background: transparent;
-      color: #2c2420;
+      color: #c8aa8c;
     }
     .btn-outline {
       background: transparent;
-      color: #2c2420;
-      border: 1px solid #2c2420;
-      margin-left: 16px;
+      color: #c8aa8c;
+      border: 1px solid rgba(200,170,140,0.4);
     }
     .btn-outline:hover {
-      background: #2c2420;
-      color: #faf8f5;
+      background: rgba(200,170,140,0.1);
+      border-color: #c8aa8c;
     }
-    @media (max-width: 600px) {
-      .btn { display: block; width: 100%; text-align: center; }
-      .btn-outline { margin-left: 0; margin-top: 12px; }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0.5; animation: bounce-down 2s ease-in-out infinite;
+    }
+    .hero-scroll-indicator span {
+      font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: #b5a89a;
+    }
+    .hero-scroll-indicator .scroll-line {
+      width: 1px; height: 32px;
+      background: linear-gradient(to bottom, #c8aa8c, transparent);
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
     }
 
-    /* Sections */
-    section { padding: 100px 0; }
-    section:not(:last-child) {
-      border-bottom: none;
-      position: relative;
-    }
-    section:not(:last-child)::after {
-      content: '';
+    /* Perfume bottle decoration */
+    .hero-bottle {
       position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      max-width: 400px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(224,194,204,0.4), transparent);
+      right: 5%; bottom: 0;
+      width: 280px; height: auto;
+      z-index: 2;
+      opacity: 0.3;
+      pointer-events: none;
+      transform: translateY(40px);
+      animation: bottle-float 6s ease-in-out infinite;
     }
+    @keyframes bottle-float {
+      0%, 100% { transform: translateY(40px) rotate(-1deg); }
+      50% { transform: translateY(20px) rotate(1deg); }
+    }
+    @media (max-width: 900px) {
+      .hero-bottle { display: none; }
+    }
+
+    /* Section defaults */
+    section { padding: 120px 0; position: relative; }
     .section-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.4em;
+      font-size: 0.55rem;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: #E0C2CC;
+      color: #c8aa8c;
       margin-bottom: 12px;
-      font-weight: 300;
+      font-weight: 500;
     }
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       margin-bottom: 16px;
-      color: #2c2420;
     }
     .section-desc {
-      color: #5a4a42;
-      font-size: 0.95rem;
+      color: #b5a89a;
+      font-size: 0.9rem;
       max-width: 560px;
-      margin-bottom: 48px;
+      margin-bottom: 60px;
+      font-weight: 300;
     }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
 
     /* Sobre */
+    #sobre { background: linear-gradient(180deg, #0a0806 0%, #100d0a 100%); }
     .sobre-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 64px;
       align-items: center;
     }
     .sobre-image {
-      width: 100%; height: 500px;
       position: relative;
       overflow: hidden;
-      border-radius: 2px;
     }
     .sobre-image img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 560px;
       object-fit: cover;
+      filter: grayscale(0.3) contrast(1.05);
+    }
+    .sobre-image::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,6,0.4) 0%, transparent 50%);
+    }
+    .sobre-image .sobre-badge {
+      position: absolute; bottom: 24px; left: 24px; z-index: 2;
+      background: rgba(10,8,6,0.8);
+      backdrop-filter: blur(12px);
+      padding: 16px 24px;
+      border-left: 2px solid #c8aa8c;
+    }
+    .sobre-image .sobre-badge strong {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; color: #f5f0eb; font-weight: 400;
+    }
+    .sobre-image .sobre-badge span {
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #c8aa8c;
     }
     .sobre-text h3 {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .sobre-text .sobre-title-accent {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #c8aa8c;
+      margin-bottom: 24px;
+      display: block;
     }
     .sobre-text p {
-      color: #5a4a42;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
+      color: #b5a89a;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    .sobre-text .highlight {
+      color: #f5f0eb;
+      font-weight: 400;
+    }
+    .sobre-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-top: 32px; padding-top: 32px;
+      border-top: 1px solid rgba(200,170,140,0.15);
+    }
+    .sobre-stat { text-align: center; }
+    .sobre-stat strong {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: #c8aa8c; font-weight: 400;
+    }
+    .sobre-stat span {
+      font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.15em; color: #7a6a5a;
     }
     @media (max-width: 768px) {
       .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
-      .sobre-image { height: 360px; }
+      .sobre-image img { height: 400px; }
     }
 
-    /* Serviços */
+    /* Services */
+    #servicos {
+      background: #100d0a;
+    }
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 24px;
     }
     .servico-card {
-      padding: 48px 32px;
-      background: linear-gradient(135deg, #fff 0%, #faf5f5 100%);
-      border: 1px solid rgba(44,36,32,0.06);
-      transition: all 0.4s ease;
-      text-align: center;
+      padding: 48px 36px;
+      background: linear-gradient(160deg, rgba(200,170,140,0.04) 0%, rgba(10,8,6,0.6) 100%);
+      border: 1px solid rgba(200,170,140,0.08);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       overflow: hidden;
+      cursor: default;
+      transform: translateY(0);
     }
     .servico-card::before {
       content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #E0C2CC, transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c8aa8c, transparent);
+      opacity: 0; transition: opacity 0.5s;
+    }
+    .servico-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(200,170,140,0.06) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.5s;
     }
     .servico-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(224,194,204,0.4);
-      box-shadow: 0 16px 48px rgba(44,36,32,0.08);
+      transform: translateY(-8px);
+      border-color: rgba(200,170,140,0.25);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
     }
-    .servico-card:hover::before {
-      opacity: 1;
+    .servico-card:hover::before { opacity: 1; }
+    .servico-card:hover::after { opacity: 1; }
+    .servico-card > * { position: relative; z-index: 1; }
+    .servico-icon {
+      width: 48px; height: 48px;
+      margin-bottom: 24px;
+      color: #c8aa8c;
     }
-    .servico-card-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border-radius: 2px;
-    }
+    .servico-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; }
     .servico-card h4 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 12px;
     }
     .servico-card p {
-      font-size: 0.85rem;
-      color: #6a5a52;
+      font-size: 0.82rem;
+      color: #8a7a6a;
       font-weight: 300;
+      line-height: 1.7;
     }
+    .servico-card .servico-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8aa8c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .servico-card .servico-link:hover { letter-spacing: 0.3em; }
     @media (max-width: 768px) {
       .servicos-grid { grid-template-columns: 1fr; }
     }
 
-    /* Processo */
-    .processo-steps {
+    /* Process */
+    #processo {
+      background: linear-gradient(180deg, #0a0806 0%, #100d0a 100%);
+    }
+    .processo-timeline {
+      position: relative;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      counter-reset: step;
+      gap: 0;
+    }
+    .processo-timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(200,170,140,0.3) 15%, rgba(200,170,140,0.3) 85%, transparent);
     }
     .step {
       text-align: center;
+      padding: 0 20px;
       position: relative;
-      padding: 0 0 32px;
-      background: linear-gradient(180deg, rgba(250,245,245,0.5) 0%, transparent 100%);
-      border-radius: 4px;
-      transition: all 0.4s ease;
-      overflow: hidden;
     }
-    .step:hover {
-      background: linear-gradient(180deg, rgba(224,194,204,0.1) 0%, transparent 100%);
+    .step-number {
+      width: 56px; height: 56px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(200,170,140,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #c8aa8c;
+      background: rgba(10,8,6,0.8);
+      position: relative;
+      z-index: 2;
+      transition: all 0.5s;
     }
-    .step-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      margin-bottom: 16px;
-      border-radius: 2px;
+    .step:hover .step-number {
+      background: #c8aa8c;
+      color: #0a0806;
+      border-color: #c8aa8c;
+      transform: scale(1.1);
     }
-    .step::before {
-      counter-increment: step;
-      content: '0' counter(step);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: rgba(224,194,204,0.3);
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 300;
+    .step-icon {
+      width: 32px; height: 32px;
+      margin: 0 auto 12px;
+      color: #c8aa8c;
     }
+    .step-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; }
     .step h4 {
       font-size: 1.1rem;
       margin-bottom: 8px;
     }
     .step p {
-      font-size: 0.82rem;
-      color: #6a5a52;
+      font-size: 0.8rem;
+      color: #7a6a5a;
       font-weight: 300;
-    }
-    .step:not(:last-child)::after {
-      content: '—';
-      position: absolute;
-      right: -16px;
-      top: 50%;
-      color: rgba(224,194,204,0.3);
-      font-size: 1.2rem;
+      line-height: 1.6;
     }
     @media (max-width: 768px) {
-      .processo-steps { grid-template-columns: 1fr 1fr; }
-      .step:not(:last-child)::after { display: none; }
+      .processo-timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+      }
+      .processo-timeline::before { display: none; }
     }
     @media (max-width: 480px) {
-      .processo-steps { grid-template-columns: 1fr; }
+      .processo-timeline { grid-template-columns: 1fr; }
     }
 
-    /* Contato */
+    /* Testimonials */
+    #depoimentos {
+      background: #100d0a;
+      overflow: hidden;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 32px;
+      padding-bottom: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .testimonials-track::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      min-width: 380px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      padding: 40px 36px;
+      background: linear-gradient(160deg, rgba(200,170,140,0.04) 0%, rgba(10,8,6,0.4) 100%);
+      border: 1px solid rgba(200,170,140,0.08);
+    }
+    .testimonial-card .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #f5f0eb;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .testimonial-card .author {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .testimonial-card .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(200,170,140,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      color: #c8aa8c;
+    }
+    .testimonial-card .author-info strong {
+      display: block; font-size: 0.8rem; color: #f5f0eb; font-weight: 400;
+    }
+    .testimonial-card .author-info span {
+      font-size: 0.65rem; color: #7a6a5a; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .testimonial-cta {
+      text-align: center; margin-top: 48px;
+    }
+    @media (max-width: 480px) {
+      .testimonial-card { min-width: 280px; }
+    }
+
+    /* Contact */
     #contato {
-      background: linear-gradient(180deg, #faf5f5 0%, #f5ecec 100%);
+      background: linear-gradient(180deg, #0a0806 0%, #100d0a 100%);
     }
     .contato-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 64px;
     }
     .contato-info h4 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      font-size: 1.6rem;
+      margin-bottom: 24px;
     }
     .contato-info p {
-      color: #5a4a42;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
+      color: #b5a89a;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
     }
+    .contato-info .info-icon {
+      width: 20px; height: 20px;
+      color: #c8aa8c;
+      flex-shrink: 0;
+    }
+    .contato-info .info-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
     .contato-info a {
-      color: #E0C2CC;
+      color: #d4cfc8;
       text-decoration: none;
+      transition: color 0.3s;
     }
-    .contato-info a:hover { text-decoration: underline; }
+    .contato-info a:hover { color: #c8aa8c; }
+    .contato-info .quote-text {
+      margin-top: 32px; padding-top: 24px;
+      border-top: 1px solid rgba(200,170,140,0.1);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #8a7a6a;
+    }
+    .contato-form {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .contato-form .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
     .contato-form input,
     .contato-form textarea {
       width: 100%;
-      padding: 14px 18px;
-      margin-bottom: 16px;
-      background: #fff;
-      border: 1px solid rgba(44,36,32,0.12);
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.85rem;
+      padding: 16px 20px;
+      background: rgba(200,170,140,0.04);
+      border: 1px solid rgba(200,170,140,0.12);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
       font-weight: 300;
-      color: #2c2420;
+      color: #f5f0eb;
       outline: none;
-      transition: border-color 0.3s;
+      transition: all 0.3s;
     }
     .contato-form input:focus,
     .contato-form textarea:focus {
-      border-color: #E0C2CC;
+      border-color: #c8aa8c;
+      background: rgba(200,170,140,0.06);
     }
-    .contato-form textarea { height: 120px; resize: vertical; }
+    .contato-form input::placeholder,
+    .contato-form textarea::placeholder { color: #5a4a3a; }
+    .contato-form textarea { min-height: 120px; resize: vertical; }
     .contato-form button {
-      width: 100%;
-      padding: 14px;
-      background: #2c2420;
-      color: #faf8f5;
-      border: none;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      padding: 16px 48px;
+      background: #c8aa8c;
+      color: #0a0806;
+      border: 1px solid #c8aa8c;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      font-weight: 300;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.4s;
+      align-self: flex-start;
     }
-    .contato-form button:hover { background: #E0C2CC; }
+    .contato-form button:hover {
+      background: transparent;
+      color: #c8aa8c;
+    }
     @media (max-width: 768px) {
       .contato-wrap { grid-template-columns: 1fr; }
+      .contato-form .form-row { grid-template-columns: 1fr; }
     }
 
     /* Footer */
     footer {
-      padding: 48px 0;
+      padding: 64px 0 32px;
       text-align: center;
-      background: #2c2420;
-      color: rgba(250,248,245,0.6);
+      border-top: 1px solid rgba(200,170,140,0.06);
     }
-    footer .logo { color: #faf8f5; }
-    footer .logo span { color: rgba(250,248,245,0.4); }
-    footer .footer-social { margin-top: 16px; display: flex; justify-content: center; gap: 16px; }
-    footer .footer-social a { font-size: 0; display: inline-block; }
-    footer .footer-social svg { width: 22px; height: 22px; fill: rgba(250,248,245,0.4); transition: fill 0.3s; }
-    footer .footer-social a:hover svg { fill: #E0C2CC; }
-    footer p { font-size: 0.75rem; margin-top: 16px; font-weight: 300; }
+    footer .logo { color: #f5f0eb; }
+    footer .logo span { color: #7a6a5a; }
+    footer .footer-social {
+      margin: 24px 0; display: flex; justify-content: center; gap: 20px;
+    }
+    footer .footer-social a {
+      width: 20px; height: 20px; display: block;
+      color: #5a4a3a; transition: color 0.3s;
+    }
+    footer .footer-social a:hover { color: #c8aa8c; }
+    footer .footer-social svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    footer p { font-size: 0.7rem; color: #5a4a3a; font-weight: 300; letter-spacing: 0.05em; }
 
     /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
     /* WhatsApp */
     .whatsapp-float {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 28px; right: 28px;
       z-index: 200;
-      width: 56px;
-      height: 56px;
+      width: 52px; height: 52px;
       border-radius: 50%;
       background: #25D366;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       text-decoration: none;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.25);
       transition: all 0.3s ease;
     }
     .whatsapp-float:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
     }
     .whatsapp-float svg {
-      width: 28px;
-      height: 28px;
+      width: 26px; height: 26px;
       fill: #fff;
     }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 90px; right: 28px;
+      z-index: 200;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(200,170,140,0.1);
+      border: 1px solid rgba(200,170,140,0.2);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; pointer-events: none;
+      transition: all 0.4s;
+      color: #c8aa8c;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover {
+      background: rgba(200,170,140,0.2);
+      transform: translateY(-3px);
+    }
+    .back-to-top svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
   </style>
 </head>
 <body>
 
+<div id="scroll-progress"></div>
+
 <header id="header">
   <div class="container">
     <a href="#" class="logo">Andreia Freitas<span>Identidade Olfativa</span></a>
-    <nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#processo">Processo</a>
-      <a href="#contato">Contato</a>
-      <div class="social-nav">
-        <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-          </svg>
-        </a>
-        <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </a>
-      </div>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato" class="nav-cta">Solicitar Orçamento</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="mist-container">
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
-    <div class="mist-particle"></div>
+  <div class="hero-bg">
+    <div class="hero-glow"></div>
+    <div class="hero-particles" id="particles"></div>
   </div>
+  <svg class="hero-bottle" viewBox="0 0 120 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="35" y="120" width="50" height="120" rx="4" stroke="rgba(200,170,140,0.3)" stroke-width="0.5"/>
+    <rect x="42" y="130" width="36" height="100" rx="2" fill="rgba(200,170,140,0.04)" stroke="rgba(200,170,140,0.15)" stroke-width="0.3"/>
+    <path d="M45 100 L48 120 L72 120 L75 100 Z" stroke="rgba(200,170,140,0.2)" stroke-width="0.5" fill="none"/>
+    <rect x="48" y="80" width="24" height="20" rx="2" stroke="rgba(200,170,140,0.2)" stroke-width="0.5"/>
+    <rect x="52" y="60" width="16" height="20" rx="1" stroke="rgba(200,170,140,0.15)" stroke-width="0.3"/>
+    <circle cx="60" cy="50" r="6" stroke="rgba(200,170,140,0.15)" stroke-width="0.3"/>
+    <rect x="30" y="240" width="60" height="2" rx="1" fill="rgba(200,170,140,0.08)"/>
+    <rect x="28" y="245" width="64" height="1" rx="1" fill="rgba(200,170,140,0.04)"/>
+  </svg>
   <div class="hero-content">
-    <p class="hero-subtitle">Criação de Assinatura Olfativa</p>
-    <h1>O perfume da <em>sua marca</em></h1>
-    <p>Identidades olfativas únicas que traduzem a essência da sua empresa em memórias sensoriais inesquecíveis.</p>
-    <div>
-      <a href="#contato" class="btn">Solicitar Orçamento</a>
+    <p class="hero-subtitle reveal">Assinatura Olfativa Premium</p>
+    <h1 class="reveal reveal-delay-1">O perfume da <span class="accent">sua marca</span></h1>
+    <p class="reveal reveal-delay-2">Identidades olfativas exclusivas que traduzem a essência do seu negócio em memórias sensoriais inesquecíveis.</p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
       <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
     </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Role</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
@@ -616,22 +794,43 @@
   <div class="container">
     <div class="sobre-grid">
       <div class="sobre-image reveal">
-        <img src="perfil.jpg" alt="Andreia Freitas">
+        <img src="perfil.jpg" alt="Andreia Freitas — Especialista em Identidade Olfativa">
+        <div class="sobre-badge">
+          <strong>10+</strong>
+          <span>Anos de Experiência</span>
+        </div>
       </div>
-      <div class="sobre-text reveal">
+      <div class="sobre-text reveal reveal-delay-1">
         <p class="section-label">Quem Sou</p>
         <h3>Andreia Freitas</h3>
+        <span class="sobre-title-accent">Especialista em Branding Olfativo</span>
         <p>
-          Há mais de uma década, eu transformo a essência de marcas em experiências olfativas memoráveis. 
+          <span class="highlight">Há mais de uma década, eu transformo a essência de marcas em experiências olfativas memoráveis.</span>
           Cada projeto é uma jornada sensorial — da pesquisa de conceito à seleção das notas perfeitas.
         </p>
         <p>
           Acredito que o aroma certo tem o poder de despertar emoções, fortalecer identidades e criar 
-          conexões profundas entre empresas e seus públicos.
+          conexões profundas entre empresas e seus públicos. Meu trabalho é dar ao seu negócio 
+          <span class="highlight">um perfume inconfundível</span>.
         </p>
         <p>
-          Meu trabalho é dar ao seu negócio um perfume inconfundível.
+          Cada fragrância que crio é uma história contada em notas olfativas — uma assinatura que seus 
+          clientes vão reconhecer e recordar.
         </p>
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <strong>100+</strong>
+            <span>Marcas Atendidas</span>
+          </div>
+          <div class="sobre-stat">
+            <strong>10+</strong>
+            <span>Anos de Mercado</span>
+          </div>
+          <div class="sobre-stat">
+            <strong>98%</strong>
+            <span>Clientes Satisfeitos</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -639,26 +838,37 @@
 
 <section id="servicos">
   <div class="container">
-    <p class="section-label reveal">Serviços</p>
-    <h2 class="section-title reveal">O que ofereço</h2>
-    <p class="section-desc reveal">
-      Da concepção à entrega, cada fragrância é desenvolvida artesanalmente para contar a história da sua marca.
-    </p>
+    <div class="text-center">
+      <p class="section-label reveal">Serviços</p>
+      <h2 class="section-title reveal">O que ofereço</h2>
+      <p class="section-desc mx-auto reveal">
+        Da concepção à entrega, cada fragrância é desenvolvida artesanalmente para contar a história da sua marca.
+      </p>
+    </div>
     <div class="servicos-grid">
-      <div class="servico-card reveal">
-        <img class="servico-card-img" src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=300&fit=crop&auto=format" alt="Assinatura Olfativa" loading="lazy">
+      <div class="servico-card reveal reveal-delay-1">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
         <h4>Assinatura Olfativa</h4>
-        <p>Criação de uma fragrância exclusiva que representa a identidade da sua marca.</p>
+        <p>Criação de uma fragrância exclusiva que representa a identidade da sua marca. Um perfume feito sob medida para contar quem você é.</p>
+        <a href="#contato" class="servico-link">Solicitar →</a>
       </div>
-      <div class="servico-card reveal">
-        <img class="servico-card-img" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop&auto=format" alt="Fragrância Corporativa" loading="lazy">
+      <div class="servico-card reveal reveal-delay-2">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M12 2v4"/><path d="M8 10h8"/><path d="M8 14h6"/></svg>
+        </div>
         <h4>Fragrância Corporativa</h4>
-        <p>Desenvolvimento de ambientes aromáticos para lojas, hotéis e escritórios.</p>
+        <p>Desenvolvimento de ambientes aromáticos para lojas, hotéis, escritórios e eventos. Uma experiência sensorial que seus clientes vão amar.</p>
+        <a href="#contato" class="servico-link">Solicitar →</a>
       </div>
-      <div class="servico-card reveal">
-        <img class="servico-card-img" src="https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=400&h=300&fit=crop&auto=format" alt="Consultoria Sensorial" loading="lazy">
+      <div class="servico-card reveal reveal-delay-3">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
         <h4>Consultoria Sensorial</h4>
-        <p>Estratégias de branding olfativo para lançamentos e eventos especiais.</p>
+        <p>Estratégias completas de branding olfativo para lançamentos, rebranding e eventos especiais. Sua marca sentida em cada detalhe.</p>
+        <a href="#contato" class="servico-link">Solicitar →</a>
       </div>
     </div>
   </div>
@@ -666,32 +876,93 @@
 
 <section id="processo">
   <div class="container">
-    <p class="section-label reveal">Processo</p>
-    <h2 class="section-title reveal">Como funciona</h2>
-    <p class="section-desc reveal">
-      Um método cuidadoso em quatro etapas para chegar à fragrância perfeita para sua marca.
-    </p>
-    <div class="processo-steps">
+    <div class="text-center">
+      <p class="section-label reveal">Processo</p>
+      <h2 class="section-title reveal">Como funciona</h2>
+      <p class="section-desc mx-auto reveal">
+        Um método cuidadoso em quatro etapas para chegar à fragrância perfeita para sua marca.
+      </p>
+    </div>
+    <div class="processo-timeline">
       <div class="step reveal">
-        <img class="step-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300&h=200&fit=crop&auto=format" alt="Imersão" loading="lazy">
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4"/><path d="M12 19v4"/><path d="M1 12h4"/><path d="M19 12h4"/></svg>
+        </div>
         <h4>Imersão</h4>
-        <p>Entendo a essência, valores e personalidade da sua marca.</p>
+        <p>Entendo a fundo a essência, os valores e a personalidade da sua marca.</p>
       </div>
-      <div class="step reveal">
-        <img class="step-img" src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=300&h=200&fit=crop&auto=format" alt="Concepção" loading="lazy">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
         <h4>Concepção</h4>
         <p>Desenvolvo o conceito olfativo com notas que traduzem sua identidade.</p>
       </div>
-      <div class="step reveal">
-        <img class="step-img" src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=300&h=200&fit=crop&auto=format" alt="Criação" loading="lazy">
+      <div class="step reveal reveal-delay-2">
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M4 17h16"/></svg>
+        </div>
         <h4>Criação</h4>
-        <p>Seleção e combinação artesanal de ingredientes exclusivos.</p>
+        <p>Seleção e combinação artesanal de ingredientes nobres e exclusivos.</p>
       </div>
-      <div class="step reveal">
-        <img class="step-img" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=300&h=200&fit=crop&auto=format" alt="Entrega" loading="lazy">
+      <div class="step reveal reveal-delay-3">
+        <div class="step-number">04</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <h4>Entrega</h4>
-        <p>Apresentação da fragrância final com diretrizes de uso.</p>
+        <p>Apresentação da fragrância final com diretrizes completas de uso.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-label reveal">Depoimentos</p>
+      <h2 class="section-title reveal">O que dizem meus clientes</h2>
+      <p class="section-desc mx-auto reveal">
+        Marcas que confiaram no meu trabalho e transformaram sua identidade olfativa.
+      </p>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <p class="quote">"A identidade olfativa que a Andreia criou para nossa loja mudou completamente a experiência dos clientes. Eles passaram mais tempo no ambiente e as vendas aumentaram significativamente."</p>
+        <div class="author">
+          <div class="author-avatar">CL</div>
+          <div class="author-info">
+            <strong>Carla Lima</strong>
+            <span>Rede de Boutiques · SP</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Trabalhar com a Andreia foi transformador. Ela conseguiu traduzir em notas olfativas exatamente o que nossa marca representa. Nossos hóspedes sempre comentam sobre o aroma do hotel."</p>
+        <div class="author">
+          <div class="author-avatar">RM</div>
+          <div class="author-info">
+            <strong>Ricardo Mendes</strong>
+            <span>Hotel Boutique · Curitiba</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"A consultoria sensorial para o lançamento do nosso produto foi um diferencial enorme. O evento teve uma identidade olfativa que as pessoas ainda lembram meses depois."</p>
+        <div class="author">
+          <div class="author-avatar">JP</div>
+          <div class="author-info">
+            <strong>Juliana Prado</strong>
+            <span>Agência de Eventos · PR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-cta reveal">
+      <a href="#contato" class="btn btn-outline">Seja o Próximo Depoimento</a>
     </div>
   </div>
 </section>
@@ -706,17 +977,31 @@
     <div class="contato-wrap">
       <div class="contato-info reveal">
         <h4>Entre em contato</h4>
-        <p>✉ <a href="mailto:andreia.tulipa@outlook.com">andreia.tulipa@outlook.com</a></p>
-        <p>📞 <a href="tel:+5541999210392">(41) 99921-0392</a></p>
-        <p>📷 <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener">@ANDREIA.TULIPA</a></p>
-        <p>📘 <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener">/home.decor.56614</a></p>
-        <p style="margin-top: 24px; font-style: italic; color: #8a7a72;">
+        <p>
+          <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:andreia.tulipa@outlook.com">andreia.tulipa@outlook.com</a>
+        </p>
+        <p>
+          <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></span>
+          <a href="tel:+5541999210392">(41) 99921-0392</a>
+        </p>
+        <p>
+          <span class="info-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener">@ANDREIA.TULIPA</a>
+        </p>
+        <p>
+          <span class="info-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span>
+          <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener">Andreia Freitas</a>
+        </p>
+        <p class="quote-text">
           "Uma marca é uma história que pode ser sentida."
         </p>
       </div>
-      <form class="contato-form reveal">
-        <input type="text" placeholder="Seu nome" required>
-        <input type="email" placeholder="Seu e-mail" required>
+      <form class="contato-form reveal reveal-delay-1">
+        <div class="form-row">
+          <input type="text" placeholder="Seu nome" required>
+          <input type="email" placeholder="Seu e-mail" required>
+        </div>
         <input type="text" placeholder="Empresa">
         <textarea placeholder="Conte um pouco sobre seu projeto..."></textarea>
         <button type="submit">Enviar Mensagem</button>
@@ -730,25 +1015,52 @@
     <a href="#" class="logo">Andreia Freitas<span>Identidade Olfativa</span></a>
     <div class="footer-social">
       <a href="https://instagram.com/ANDREIA.TULIPA" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
       <a href="https://facebook.com/home.decor.56614" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://wa.me/5541999210392" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
       </a>
     </div>
     <p>&copy; 2026 Andreia Freitas — Identidade Olfativa. Todos os direitos reservados.</p>
   </div>
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<a class="whatsapp-float" href="https://wa.me/5541999210392" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
+  // Scroll progress bar
+  const progress = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = pct + '%';
+  });
+
   // Header scroll effect
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
   });
 
   // Scroll reveal
@@ -758,16 +1070,34 @@
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
-<a class="whatsapp-float" href="https://wa.me/5541999210392" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 600);
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Hero particles
+  const particlesContainer = document.getElementById('particles');
+  if (particlesContainer) {
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.width = (2 + Math.random() * 4) + 'px';
+      p.style.height = p.style.width;
+      p.style.animationDuration = (12 + Math.random() * 20) + 's';
+      p.style.animationDelay = (Math.random() * 15) + 's';
+      particlesContainer.appendChild(p);
+    }
+  }
+</script>
 
 </body>
 </html>
