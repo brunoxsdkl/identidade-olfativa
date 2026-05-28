@@ -315,22 +315,30 @@
     .step {
       text-align: center;
       position: relative;
-      padding: 40px 20px;
+      padding: 0 0 32px;
       background: linear-gradient(180deg, rgba(250,245,245,0.5) 0%, transparent 100%);
       border-radius: 4px;
       transition: all 0.4s ease;
+      overflow: hidden;
     }
     .step:hover {
       background: linear-gradient(180deg, rgba(224,194,204,0.1) 0%, transparent 100%);
+    }
+    .step-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 16px;
+      border-radius: 2px;
     }
     .step::before {
       counter-increment: step;
       content: '0' counter(step);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: rgba(224,194,204,0.25);
+      font-size: 2.5rem;
+      color: rgba(224,194,204,0.3);
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       font-weight: 300;
     }
     .step h4 {
@@ -571,18 +579,22 @@
     </p>
     <div class="processo-steps">
       <div class="step reveal">
+        <img class="step-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300&h=200&fit=crop&auto=format" alt="Imersão" loading="lazy">
         <h4>Imersão</h4>
         <p>Entendo a essência, valores e personalidade da sua marca.</p>
       </div>
       <div class="step reveal">
+        <img class="step-img" src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=300&h=200&fit=crop&auto=format" alt="Concepção" loading="lazy">
         <h4>Concepção</h4>
         <p>Desenvolvo o conceito olfativo com notas que traduzem sua identidade.</p>
       </div>
       <div class="step reveal">
+        <img class="step-img" src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=300&h=200&fit=crop&auto=format" alt="Criação" loading="lazy">
         <h4>Criação</h4>
         <p>Seleção e combinação artesanal de ingredientes exclusivos.</p>
       </div>
       <div class="step reveal">
+        <img class="step-img" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=300&h=200&fit=crop&auto=format" alt="Entrega" loading="lazy">
         <h4>Entrega</h4>
         <p>Apresentação da fragrância final com diretrizes de uso.</p>
       </div>
