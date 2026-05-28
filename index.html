@@ -285,10 +285,12 @@
     .servico-card:hover::before {
       opacity: 1;
     }
-    .servico-icon {
-      font-size: 2rem;
+    .servico-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
       margin-bottom: 20px;
-      color: #E0C2CC;
+      border-radius: 2px;
     }
     .servico-card h4 {
       font-size: 1.3rem;
@@ -542,17 +544,17 @@
     </p>
     <div class="servicos-grid">
       <div class="servico-card reveal">
-        <div class="servico-icon">✧</div>
+        <img class="servico-card-img" src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=300&fit=crop&auto=format" alt="Assinatura Olfativa" loading="lazy">
         <h4>Assinatura Olfativa</h4>
         <p>Criação de uma fragrância exclusiva que representa a identidade da sua marca.</p>
       </div>
       <div class="servico-card reveal">
-        <div class="servico-icon">◇</div>
+        <img class="servico-card-img" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop&auto=format" alt="Fragrância Corporativa" loading="lazy">
         <h4>Fragrância Corporativa</h4>
         <p>Desenvolvimento de ambientes aromáticos para lojas, hotéis e escritórios.</p>
       </div>
       <div class="servico-card reveal">
-        <div class="servico-icon">○</div>
+        <img class="servico-card-img" src="https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=400&h=300&fit=crop&auto=format" alt="Consultoria Sensorial" loading="lazy">
         <h4>Consultoria Sensorial</h4>
         <p>Estratégias de branding olfativo para lançamentos e eventos especiais.</p>
       </div>
